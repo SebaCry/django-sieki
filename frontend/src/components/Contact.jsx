@@ -1,4 +1,3 @@
-import NavBar from "./NavBar";
 import celularContactanos from "../assets/IMG/CELULAR_CONTACTANOS.png";
 import logoFacebook from "../assets/IMG/LOGO_FACEBOOK.png";
 import logoInstagram from "../assets/IMG/LOGO_INSTAGRAM.png";
@@ -7,7 +6,7 @@ import logoWhatsapp from "../assets/IMG/LOGO_WHATSAPP.png";
 
 const Contact = () => {
     return (
-        <div className="min-h-full flex flex-row items-center justify-center p-4">
+        <div className="mt-[50px] min-h-full flex flex-row items-center justify-center p-4">
             <div className="bg-white shadow-lg rounded-lg flex flex-row gap-6 p-6 w-full max-w-5xl">
                 <div className="w-full md:w-1/2 max-w-md flex justify-center items-center">
                     <img src={celularContactanos} alt="Phone Mockup" />

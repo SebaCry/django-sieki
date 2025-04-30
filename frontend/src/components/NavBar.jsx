@@ -19,7 +19,10 @@ const NavBar = () => {
                     <Link to="/" className="hover:text-gray-300 transition-colors duration-300">
                         Acerca de nosotros
                     </Link>
-                    <Link to="/" className="hover:text-gray-300 transition-colors duration-300">
+                    <Link to="/reserva" className="hover:text-gray-300 transition-colors duration-300">
+                                Reserva
+                    </Link>
+                    <Link to="/catalogo" className="hover:text-gray-300 transition-colors duration-300">
                         Catalogo
                     </Link>
                     <Link to="/contact" className="hover:text-gray-300 transition-colors duration-300">
@@ -38,10 +41,6 @@ const NavBar = () => {
                             className="hover:text-gray-300 transition-colors duration-300">
                                 Logout
                             </button>
-
-                            <Link to="/" className="hover:text-gray-300 transition-colors duration-300">
-                                Reserva
-                            </Link>
                         </>
                     ) : (
                         <>
