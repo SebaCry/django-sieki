@@ -1,11 +1,19 @@
-from django.contrib.auth.models import User
+from .models import Usuario
 from rest_framework import serializers
 from django.contrib.auth.hashers import make_password
 
 class UserSerializer(serializers.ModelSerializer):
     class Meta:
-        model = User
-        fields = ['id', 'username', 'email','password']
+        model = Usuario
+        fields = [
+            'id',
+            'email',
+            'username',
+            'tel_usua',
+            'first_name',
+            'last_name',
+            'rol'
+        ]
         extra_kwargs = {
                 'password' : {'write_only' : True}
             }

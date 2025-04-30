@@ -6,9 +6,6 @@ const Register = () => {
     const [formData, setFormData] = useState({
         username : "",
         email : "",
-        first_name : "",
-        last_name : "",
-        tel_usua : "",
         password : ""
     })
 
@@ -23,20 +20,21 @@ const Register = () => {
     }
 
     const handleSubmit = async (e) => {
-        e.preventDefault()
+        e.preventDefault();
+        console.log("Data sent to API:", formData); 
+    
         try {
-            const response = await axios.post("http://localhost:8000/auth/register/", formData)
-            setMessage("Registration successful")
+            const response = await axios.post("http://localhost:8000/auth/register/", formData);
+            setMessage("Registration successful");
         } catch (err) {
-            if (error.response) {
-
-                setMessage("Error during registration: " + error.response.data);
+            if (err.response) {
+                console.error("Error response:", err.response.data); 
+                setMessage("Error during registration: " + err.response.data);
             } else {
-                // Network or other errors
                 setMessage("Error: Unable to connect to the server.");
             }
         }
-    }
+    };
 
     return (
         <div className='max-w-4xl mx-auto mt-10 p-6 bg-white shadow-md rounded-lg flex flex-col md:flex-row gap-4'>

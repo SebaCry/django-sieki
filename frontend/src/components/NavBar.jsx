@@ -22,7 +22,7 @@ const NavBar = () => {
                     <Link to="/" className="hover:text-gray-300 transition-colors duration-300">
                         Catalogo
                     </Link>
-                    <Link to="/" className="hover:text-gray-300 transition-colors duration-300">
+                    <Link to="/contact" className="hover:text-gray-300 transition-colors duration-300">
                         Contactanos
                     </Link>
                     {isAuthenticated ? (

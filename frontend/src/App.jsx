@@ -3,6 +3,7 @@ import NavBar from "./components/NavBar"
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Dashboard from "./components/Dashboard";
+import Contact from "./components/Contact";
 
 const Home = () => <div className="text-center mt-10 text-xl"><h1 className="font-bold text-[50px]">Welcome to My app</h1></div>
 
@@ -16,6 +17,7 @@ const App = () => {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/contact" element={<Contact />} />
           </Routes>
         </div>
     </Router>
