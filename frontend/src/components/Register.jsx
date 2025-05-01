@@ -5,8 +5,11 @@ import fotoDiana from "../assets/EPA (3).png"
 const Register = () => {
     const [formData, setFormData] = useState({
         username : "",
+        tel_usua : "",
+        first_name : "",
+        last_name : "",
         email : "",
-        password : ""
+        password : "",
     })
 
     const [message, setMessage] = useState("")
