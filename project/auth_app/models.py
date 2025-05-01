@@ -46,7 +46,7 @@ class Usuario(AbstractBaseUser):
     tel_usua = models.CharField(max_length=10, unique=True)
     first_name = models.CharField(max_length=45)
     last_name = models.CharField(max_length=45)
-    rol = models.CharField(choices=ROLES, max_length=10, default='usuario')
+    rol = models.CharField(choices=ROLES, max_length=10, default='user')
 
     is_active = models.BooleanField(default=True)
     date_joined = models.DateTimeField(auto_now_add=True)
@@ -61,7 +61,7 @@ class Usuario(AbstractBaseUser):
     objects = CustomerUserManager()
 
     def __str__(self):
-        return '{}{}'.format(self.username, self.email)
+        return '{} - {}'.format(self.username, self.email)
     
     def has_perm(self, perm, obj=None):
         return self.is_admin

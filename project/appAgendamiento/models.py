@@ -1,5 +1,5 @@
 from django.db import models
-from auth_app.models import Usuario 
+from django.conf import settings
 
 class Servicio(models.Model):
     nom_ser = models.CharField(max_length=45, unique=True)
@@ -18,11 +18,11 @@ class Citas(models.Model):
     
     fecha_hora = models.DateTimeField(auto_now_add=True)
     estado = models.CharField(choices=ESTADO, max_length=20)
-    usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    usuario = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     servicio = models.ForeignKey(Servicio, on_delete=models.CASCADE)
     
     def __str__(self):
-        return f'{self.usuario} - {self.servicio ({self.estado})}'
+        return f'{self.usuario} - {self.servicio} ({self.estado})'
     
 
     
