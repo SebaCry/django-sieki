@@ -45,8 +45,15 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
-    'auth_app'
+    'auth_app',
+    'appCatalogo',
+    'appCarrito',
+    'appPedido',
+    'appDashboard',
+    'appAgendamiento',
 ]
+
+AUTH_USER_MODEL = 'auth_app.Usuario'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -92,8 +99,6 @@ DATABASES = {
         'PORT': config('DB_PORT'),
     }
 }
-
-AUTH_USER_MODEL = 'auth_app.Usuario'
 
 
 # Password validation

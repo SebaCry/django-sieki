@@ -5,7 +5,7 @@ class CustomerUserManager(BaseUserManager):
     def create_user(self, email,username, tel_usua, first_name, last_name, password=None):
         if not email or not username:
             raise ValueError('Users without email and username')
-        
+                
         user = self.model(
             email = self.normalize_email(email),
             username = username,
@@ -68,6 +68,11 @@ class Usuario(AbstractBaseUser):
 
     def has_module_perms(self, app_label):
         return True
+    
+    def clean(self):
+        import re
+        if not re.match(r'^\d{10}$', self.tel_usua):
+            raise ValueError('El número de teléfono debe tener 10 dígitos')
     
     class Meta:
         verbose_name_plural = 'Usuarios'
