@@ -3,21 +3,23 @@ from rest_framework import serializers
 from django.contrib.auth.hashers import make_password
 
 class UserSerializer(serializers.ModelSerializer):
+    password = serializers.CharField(write_only=True, required=True)
     class Meta:
         model = Usuario
         fields = [
             'id',
             'email',
             'username',
+            'password',
             'tel_usua',
             'first_name',
             'last_name',
             'rol'
         ]
-        extra_kwargs = {
-                'password' : {'write_only' : True}
-            }
         
-    def create(self, validated_data):
-        validated_data['password'] = make_password(validated_data['password'])
-        return super().create(validated_data)
+    def validate_tel_usua(self, value):
+        if not value:
+            raise serializers.ValidationError("El campo 'tel_usua' es obligatorio.")
+        if Usuario.objects.filter(tel_usua=value).exists():
+            raise serializers.ValidationError("Este número de teléfono ya está registrado.")
+        return value

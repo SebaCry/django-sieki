@@ -43,7 +43,7 @@ class Usuario(AbstractBaseUser):
 
     email = models.EmailField(max_length=45, unique=True)
     username = models.CharField(max_length=45, unique=True)
-    tel_usua = models.CharField(max_length=10, unique=True)
+    tel_usua = models.CharField(max_length=10)
     first_name = models.CharField(max_length=45)
     last_name = models.CharField(max_length=45)
     rol = models.CharField(choices=ROLES, max_length=10, default='user')

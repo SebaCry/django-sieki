@@ -1,4 +1,4 @@
-from django.contrib.auth.models import User
+from .models import Usuario
 from rest_framework import status
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
@@ -21,12 +21,13 @@ def user_profile(request):
     }
     return Response(data)
 
+
 @api_view(['POST'])
 def register_user(request):
     serializer = UserSerializer(data=request.data)
     if serializer.is_valid():
         user = serializer.save()
-        user.set_password(user.password)
+        user.set_password(serializer.validated_data['password'])
         user.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -36,7 +37,7 @@ def login_user(request):
     user = request.data.get('username')
     password = request.data.get('password')
     try:
-        user = User.objects.get(username=user)
+        user = Usuario.objects.get(username=user)
         if user.check_password(password):
             refresh = RefreshToken.for_user(user)
             return Response({
@@ -47,7 +48,7 @@ def login_user(request):
             return Response({
                 'error' : 'Invalid credentials'
             }, status=status.HTTP_401_UNAUTHORIZED)
-    except User.DoesNotExist:
+    except Usuario.DoesNotExist:
         return Response({
             'error' : "User doen't exist"
         }, status=status.HTTP_404_NOT_FOUND)

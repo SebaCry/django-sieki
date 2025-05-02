@@ -24,10 +24,9 @@ const Register = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log("Data sent to API:", formData); 
     
         try {
-            const response = await axios.post("http://localhost:8000/auth/register/", formData);
+            const response = await axios.post("http://127.0.0.1:8000/auth/register/", formData);
             setMessage("Registration successful");
         } catch (err) {
             if (err.response) {
@@ -73,6 +72,41 @@ const Register = () => {
                             required 
                         />
                     </div>
+                    
+                    <div className='mb-4'>
+                        <label className='block text-gray-700'>Telefono</label>
+                        <input 
+                            type="text"
+                            name='tel_usua'
+                            value= {formData.tel_usua}
+                            onChange= {handleChange}
+                            className='w-full px-3 py-2 border border-gray-300 rounded'
+                            required 
+                        />
+                    </div>
+                    <div className='mb-4'>
+                        <label className='block text-gray-700'>Nombre</label>
+                        <input 
+                            type="text"
+                            name='first_name'
+                            value= {formData.first_name}
+                            onChange= {handleChange}
+                            className='w-full px-3 py-2 border border-gray-300 rounded'
+                            required 
+                        />
+                    </div>
+                    <div className='mb-4'>
+                        <label className='block text-gray-700'>Apellido</label>
+                        <input 
+                            type="text"
+                            name='last_name'
+                            value= {formData.last_name}
+                            onChange= {handleChange}
+                            className='w-full px-3 py-2 border border-gray-300 rounded'
+                            required 
+                        />
+                    </div>
+
                     <div className='mb-4'>
                         <label className='block text-gray-700'>Contraseña</label>
                         <input 
@@ -84,6 +118,7 @@ const Register = () => {
                             required 
                         />
                     </div>
+
 
                     <button
                         type="submit"

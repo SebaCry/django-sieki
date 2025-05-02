@@ -1,12 +1,19 @@
 import Productos from "./Productos";
+import imagenDiana1 from "../assets/images-diana/FOTOBYNPNG.png";
+import imagenFondo from "../assets/images-diana/IMG0.png";
+import certificacion from "../assets/icons/certification-guaranteed.png";
+import icon from "../assets/icons/img-1.png"
+
+
 const Index = () => {
   return (
     <div>
-      <header className="header-container bg-cover bg-center bg-fixed h-screen" style={{ backgroundImage: "url('/assets/images-diana/IMG0.png')" }}>
+      <header className="w-full bg-cover bg-center bg-fixed h-150" style={{ backgroundImage: `url(${imagenFondo})` }}>
         
         <div className="text-center text-white pt-40">
           <p className="text-xl">BIENVENIDO A</p>
-          <h1 className="text-4xl font-bold">Epa Keratinas Ibagué</h1>
+          <h1 className="text-[5.5rem] font-bold font-['Dancing_Script'] tracking-widest">Epa Keratinas Ibagué</h1>
+          <img className="w-12 mx-auto" src={icon} alt="" />
           <div className="mt-8">
             <a href="/pages/appointment.html" className="btn-header bg-transparent border border-white text-white px-12 py-3 rounded-full hover:bg-white hover:text-black transition">
               Reserva
@@ -18,16 +25,16 @@ const Index = () => {
       {/* Main Content */}
       <main>
         {/* About Section */}
-        <section id="main-about-container" className="py-16">
-          <h3 className="text-center text-2xl font-bold uppercase tracking-wider mb-8">Acerca De</h3>
+        <section id="main-about-container" className="py-16 p-0">
+          <h3 className="text-center text-3xl font-bold uppercase tracking-wider mb-8">Acerca De</h3>
           <div className="flex flex-wrap justify-center items-start gap-8 px-4">
-            <img className="flex-1 max-w-md" src="assets/images-diana/FOTOBYNPNG.png" alt="Diana Cedano" />
-            <div className="flex-1 max-w-lg text-justify">
-              <h3 className="text-xl font-semibold mb-4">Diana Cedano</h3>
-              <p className="mb-4">
+            <img className="flex-1 max-w-md" src={imagenDiana1} alt="Diana Cedano" />
+            <div className="flex-1 max-w-lg pt-[6rem] text-center justify-center inline-block">
+              <h3 className="text-xl font-semibold mb-5">Diana Cedano</h3>
+              <p className="mb-5">
                 Diana Cedano es Administradora de Empresas, Presentadora Comercial y Especialista en Alisados y Recuperación Capilar, con más de 18 años de experiencia en el sector de la belleza y la estética capilar...
               </p>
-              <img className="w-24 mx-auto" src="assets/icons/certification-guaranteed.png" alt="Certificación garantizada" />
+              <img className="w-24 mx-auto" src={certificacion} alt="Certificación garantizada" />
             </div>
           </div>
           <div className="text-center mt-12">
@@ -46,14 +53,15 @@ const Index = () => {
         </section>
 
         {/* Location Section */}
-        <section className="main-ubication-container text-white text-center py-16">
+        <section className="main-ubication-container items-center text-white text-center py-16  bg-gray-950 ">
           <h3 className="text-2xl font-semibold mb-4">Ubicado</h3>
+          <img className="w-12 mx-auto" src={icon} alt="" />
           <p className="mb-2">@keratinaslasenoradeibague</p>
           <p className="mb-2">Calle 59#5-36 Barrio Limonar, Ibagué, Tolima</p>
           <p className="mb-6">+57 304 549 1548</p>
           <div className="flex justify-center space-x-4">
             <a href="" className="bg-pink-500 px-6 py-2 rounded-full hover:bg-pink-600">Reserva</a>
-            <a href="" className="bg-pink-500 px-6 py-2 rounded-full hover:bg-pink-600">Instagram</a>
+            <a href="https://www.instagram.com/dianacedanokeratinasibague/" className="bg-pink-500 px-6 py-2 rounded-full hover:bg-pink-600">Instagram</a>
             <a href="" className="bg-pink-500 px-6 py-2 rounded-full hover:bg-pink-600">WhatsApp</a>
           </div>
         </section>
